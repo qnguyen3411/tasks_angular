@@ -8,19 +8,29 @@ import { HttpService } from './http.service';
 })
 export class AppComponent implements OnInit {
   title = 'Restful Tasks API';
-  tasks = ["sup", "ey", "yo"];
+  tasks = [];
+  selectedTask:Object;
 
   constructor(private _httpService: HttpService){}
 
   ngOnInit() {
-    this.getTasksFromService();
+    // this.getTasksFromService();
   }
   getTasksFromService() {
     let observable = this._httpService.getTasks();
-    observable.subscribe(data => {
-      console.log("Got our tasks!", data);
-      const titleArr = (data["data"] as [Object]).map(task => task["title"]);
-      this.tasks = titleArr;
+    observable.subscribe(response => {
+      console.log("Got our tasks!", response);
+      // const titleArr = (data["data"] as [Object]).map(task => task["title"]);
+      this.tasks = response["data"];
+    })
+  }
+
+  getTaskById(id: string) {
+    console.log(id)
+    let observable = this._httpService.getTask(id);
+    observable.subscribe(response => {
+      console.log(response)
+      this.selectedTask = response["data"];
     })
   }
 }

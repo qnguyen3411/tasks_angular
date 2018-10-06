@@ -15,7 +15,6 @@ export class HttpService {
   }
 
   getTask(id: string) {
-    let temp = this._http.get(`/tasks/${id}`)
-    temp.subscribe(data => console.log("Got my task!", data))
+    return this._http.get(`/tasks/${id}`)
   }
 }
