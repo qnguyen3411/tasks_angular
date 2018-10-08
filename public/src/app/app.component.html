@@ -33,8 +33,10 @@
 
     </ul>
   </div>
-
-  <div *ngIf="selectedTask" class="col-4 mr-2 ml-5">
+  
+  <app-task *ngIf="selectedTask" [taskToShow]="selectedTask" class="col-4 mr-2 ml-5"></app-task> 
+</div>
+  <!-- <div *ngIf="selectedTask" class="col-4 mr-2 ml-5">
     <h2>Edit Task</h2>
     <form (submit)="editTask(selectedTask)" class="form-group">
       <div class="form-group-item">
@@ -50,4 +52,4 @@
       <input class="btn btn-outline-dark" type="submit" value="Edit">
     </form>
   </div>
-</div>
+</div> -->

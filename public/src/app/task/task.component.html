@@ -1,0 +1,17 @@
+
+<div *ngIf="taskToShow">
+  <h2>Edit Task</h2>
+  <form class="form-group">
+    <div class="form-group-item">
+      <label>Title: 
+        <input class="form-control" type="text" name="taskToShow.title" [(ngModel)]="taskToShow.title">
+      </label>
+    </div>
+    <div class="form-group-item">
+      <label>Description: 
+        <input class="form-control" type="text" name="taskToShow.description" [(ngModel)]="taskToShow.description">
+      </label>
+    </div>
+    <input class="btn btn-outline-dark" type="submit" value="Edit">
+  </form>
+</div>
